@@ -1,0 +1,137 @@
+1 )
+
+db.movie.aggregate([
+  {
+    '$lookup': {
+      'from': 'media', 
+      'localField': 'movie_id', 
+      'foreignField': 'movie_id', 
+      'as': 'join'
+    }
+  }, {
+    '$project': { 
+      '_id' : 0,
+      'movie_name': 1, 
+      'join': {
+        'music.music_name': 1, 
+        'photos.photo_link': 1, 
+        'videos.video_title': 1
+      }
+    }
+  }
+])
+
+2) 
+
+
+db.movie.aggregate([
+  {
+    '$lookup': {
+      'from': 'media', 
+      'localField': 'movie_id', 
+      'foreignField': 'movie_id', 
+      'as': 'join'
+    }
+  }, {
+    '$lookup': {
+      'from': 'rating_review', 
+      'localField': 'movie_id', 
+      'foreignField': 'movie_id', 
+      'as': 'reviews'
+    }
+  }, {
+    '$project': {
+      'movie_name': 1, 
+      'join': {
+        'music.music_name': 1, 
+        'photos.photo_link': 1, 
+        'videos.video_title': 1
+      }, 
+      'reviews': {
+        'review': 1
+      }
+    }
+  }
+])
+
+3 )
+db.movie.aggregate([
+  {
+    '$lookup': {
+      'from': 'media', 
+      'localField': 'movie_id', 
+      'foreignField': 'movie_id', 
+      'as': 'join'
+    }
+  }, {
+    '$project': {
+      'movie_name': 1, 
+      'artists.name': 1, 
+      'artists.role': 1, 
+      'join': {
+        'music.music_name': 1, 
+        'photos.photo_link': 1, 
+        'videos.video_title': 1
+      }
+    }
+  }
+])
+
+4 )
+db.user.aggregate([
+    {
+        '$unwind': {
+            'path': '$rating_id'
+        }
+    }, {
+        '$lookup': {
+            'from': 'rating_review', 
+            'localField': 'rating_id', 
+            'foreignField': 'rating_id', 
+            'as': 'join'
+        }
+    }, {
+        '$project': {
+            'name': 1, 
+            'join': {
+                'review': 1
+            }
+        }
+    }, {
+        '$group': {
+            '_id': '$name', 
+            'joinreview': {
+                '$addToSet': '$join.review'
+            }
+        }
+    }
+])
+5)
+db.movie.aggregate([
+  {
+    '$lookup': {
+      'from': 'skill', 
+      'localField': 'artists.artist_id', 
+      'foreignField': 'artist_id', 
+      'as': 'join'
+    }
+  }, {
+    '$project': {
+      '_id': 0, 
+      'artists.name': 1, 
+      'join': {
+        'skill': 1
+      }
+    }
+  }
+])
+6)
+db.movie.aggregate([
+  {
+    '$project': {
+      '_id' : 0 , 
+      'artists.name': 1, 
+      'artists.role': 1
+    }
+  }
+])

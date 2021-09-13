@@ -1,0 +1,41 @@
+[
+    {
+        "movie_id" : 1 , 
+        "movie_name" : "movie 1",
+        "total_rating" : 2.4 ,
+        "genres"  : ["Horror" ,"Action"],
+        "artists" :[
+        {
+            "artist_id" : 1 , 
+            "name" : "artist 1" , 
+            "role"  : [ "role 1" , "role 2" , "role 3"]
+        },
+            {
+            "artist_id" : 2 , 
+            "name" : "artist 2" , 
+            "role"  : [ "role 1" , "role 2" , "role 3"]
+        
+            }
+        ]
+    },
+    
+    {
+        "movie_id" : 2 , 
+        "movie_name" : "movie 2",
+        "total_rating" : 3.4 ,
+        "genres"  : ["Drama" ,"Action"],
+        "artists" :[
+        {
+            "artist_id" : 3 , 
+            "name" : "artist 3" , 
+            "role"  : [ "role 1" , "role 2" , "role 3"]
+        },
+            {
+            "artist_id" : 4 , 
+            "name" : "artist 4" , 
+            "role"  : [ "role 1" , "role 2" , "role 3"]
+        
+            }
+        ]
+    }
+]

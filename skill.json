@@ -1,0 +1,19 @@
+[
+    {
+        "artist_id" : 1,
+        "skill" :["dancing" , "acting" , "rapping"]
+    },
+    {
+        "artist_id" : 2 , 
+        "skill" : ["dancing" , "modeling" , "writting" , "Directing"]
+    },
+    {
+        "artist_id" : 3 , 
+        "skill" : ["dancing" , "modeling" , "writting" , "Directing" , "acting"]
+    },
+    {
+        "artist_id" : 4 , 
+        "skill" : ["dancing" , "modeling" , "writting" , "Directing" , "drawing"]
+    }
+    
+]

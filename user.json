@@ -1,0 +1,13 @@
+[
+    {
+        "user_id" : 1 ,
+        "name" : "user 1" ,
+        "rating_id" : [1,2,3,4,5]
+ 
+    },
+    {
+        "user_id" : 2 , 
+        "name" : "user_2" ,
+        "rating_id" : [1,2,3,4,5]
+    }
+]
